@@ -1,15 +1,102 @@
-# pkg-placeholder
+# @deviltea/tiny-state-machine
 
 [![npm version][npm-version-src]][npm-version-href]
 [![npm downloads][npm-downloads-src]][npm-downloads-href]
 [![bundle][bundle-src]][bundle-href]
-[![JSDocs][jsdocs-src]][jsdocs-href]
 [![License][license-src]][license-href]
 
-_description_
+A simple state machine with tiny size and type safe.
 
-> **Note**:
-> Replace `pkg-placeholder`, `_description_` and `deviltea` globally to use this template.
+## Install
+
+```sh
+npm install @deviltea/tiny-state-machine
+```
+
+<details>
+
+<summary>
+
+## Concept
+
+</summary>
+
+- ### State
+    `State` is a data structure that describes the state of the state machine.
+
+    There are two types of state:
+    - **`General`**: A state that can be entered and exited, and defines the next state of each event.
+        ```ts
+        interface GeneralState {
+        	on: {
+        		[event: string]: string // next state
+        	}
+        }
+        ```
+    - **`Final`**: A state that can only be entered.
+        ```ts
+        interface FinalState {
+        	type: 'final'
+        }
+        ```
+
+- ### Event
+    `Event` is a data structure that describes the event of triggering the transition between states.
+
+- ### Transition
+    `Transition` is a data structure that describes the transition between states.
+    ```ts
+    interface Transition {
+    	oldState: string
+    	event: string
+    	state: string
+    }
+    ```
+
+- ### Context
+    `Context` is used to store the data of the state machine.
+
+</details>
+
+## Usage
+```ts
+import { createMachine } from '@deviltea/tiny-state-machine'
+
+const machine = createMachine(
+	// Config
+	{
+		initial: 'idle', // Initial state name
+		states: {
+			idle: {
+				on: {
+					// Event: `START`
+					// Next State: `running`
+					START: 'running',
+				},
+			},
+			running: {
+				on: {
+					PAUSE: 'idle',
+					STOP: 'end',
+				},
+			},
+			end: {
+				type: 'final',
+			},
+		},
+	},
+	// (Optional) Context
+	{},
+)
+
+machine.start() // Start the state machine, must be called before dispatching events
+```
+
+## Methods
+- **`machine.start()`**:
+    - Start the state machine, it would transition to the initial state.
+
+
 
 ## License
 
@@ -18,13 +105,11 @@ _description_
 
 <!-- Badges -->
 
-[npm-version-src]: https://img.shields.io/npm/v/pkg-placeholder?style=flat&colorA=080f12&colorB=1fa669
-[npm-version-href]: https://npmjs.com/package/pkg-placeholder
-[npm-downloads-src]: https://img.shields.io/npm/dm/pkg-placeholder?style=flat&colorA=080f12&colorB=1fa669
-[npm-downloads-href]: https://npmjs.com/package/pkg-placeholder
-[bundle-src]: https://img.shields.io/bundlephobia/minzip/pkg-placeholder?style=flat&colorA=080f12&colorB=1fa669&label=minzip
-[bundle-href]: https://bundlephobia.com/result?p=pkg-placeholder
-[license-src]: https://img.shields.io/github/license/antfu/pkg-placeholder.svg?style=flat&colorA=080f12&colorB=1fa669
-[license-href]: https://github.com/antfu/pkg-placeholder/blob/main/LICENSE
-[jsdocs-src]: https://img.shields.io/badge/jsdocs-reference-080f12?style=flat&colorA=080f12&colorB=1fa669
-[jsdocs-href]: https://www.jsdocs.io/package/pkg-placeholder
+[npm-version-src]: https://img.shields.io/npm/v/@deviltea/tiny-state-machine?style=flat&colorA=080f12&colorB=1fa669
+[npm-version-href]: https://npmjs.com/package/@deviltea/tiny-state-machine
+[npm-downloads-src]: https://img.shields.io/npm/dm/@deviltea/tiny-state-machine?style=flat&colorA=080f12&colorB=1fa669
+[npm-downloads-href]: https://npmjs.com/package/@deviltea/tiny-state-machine
+[bundle-src]: https://img.shields.io/bundlephobia/minzip/@deviltea/tiny-state-machine?style=flat&colorA=080f12&colorB=1fa669&label=minzip
+[bundle-href]: https://bundlephobia.com/result?p=@deviltea/tiny-state-machine
+[license-src]: https://img.shields.io/github/license/DevilTea/tiny-state-machine.svg?style=flat&colorA=080f12&colorB=1fa669
+[license-href]: https://github.com/DevilTea/tiny-state-machine/blob/main/LICENSE
