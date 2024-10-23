@@ -1,17 +1,17 @@
 {
-	"name": "pkg-placeholder",
+	"name": "@deviltea/tiny-state-machine",
 	"type": "module",
 	"version": "0.0.0",
 	"packageManager": "pnpm@8.11.0",
-	"description": "_description_",
+	"description": "A simple state machine with tiny size and type safe.",
 	"author": "DevilTea <ch870814@gmail.com>",
 	"license": "MIT",
-	"homepage": "https://github.com/DevilTea/pkg-placeholder#readme",
+	"homepage": "https://github.com/DevilTea/tiny-state-machine#readme",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/DevilTea/pkg-placeholder.git"
+		"url": "git+https://github.com/DevilTea/tiny-state-machine.git"
 	},
-	"bugs": "https://github.com/DevilTea/pkg-placeholder/issues",
+	"bugs": "https://github.com/DevilTea/tiny-state-machine/issues",
 	"keywords": [],
 	"sideEffects": false,
 	"exports": {
@@ -48,7 +48,6 @@
 		"release": "bumpp && npm publish",
 		"start": "esno src/index.ts",
 		"test": "vitest",
-		"test:cov": "vitest --coverage",
 		"typecheck": "tsc --noEmit --project tsconfig.test.json",
 		"prepare": "simple-git-hooks"
 	},
