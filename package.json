@@ -1,7 +1,6 @@
 {
 	"name": "@deviltea/tiny-state-machine-mono",
 	"type": "module",
-	"version": "0.0.1",
 	"private": true,
 	"packageManager": "pnpm@9.12.2",
 	"description": "A simple state machine with tiny size and type safe.",
@@ -16,7 +15,7 @@
 	"keywords": [],
 	"scripts": {
 		"build": "lerna run build",
-		"release": "lerna exec publint && pnpm run typecheck && lerna version && lerna run build && lerna publish",
+		"release": "lerna exec publint && pnpm run typecheck && lerna run build && lerna publish",
 		"lint": "eslint --fix .",
 		"typecheck": "tsc -b --noEmit",
 		"publint": "lerna exec publint",
