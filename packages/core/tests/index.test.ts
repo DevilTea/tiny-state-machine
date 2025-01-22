@@ -1,4 +1,4 @@
-import { beforeEach, describe, expect, expectTypeOf, it, vi } from 'vitest'
+import { beforeEach, describe, expect, it, vi } from 'vitest'
 import { createMachine } from '../src/index'
 
 describe('should', () => {
@@ -17,9 +17,7 @@ describe('should', () => {
 							done: 'finished',
 						},
 					},
-					finished: {
-						type: 'final',
-					},
+					finished: {},
 				},
 			},
 		)
@@ -44,7 +42,7 @@ describe('should', () => {
 		machine.send('start')
 		expect(machine.currentState).toBe('loading')
 		expect(handler).toHaveBeenCalledTimes(1)
-		expect(handler.mock.calls[0][0].transition).toEqual({
+		expect(handler.mock.calls[0]![0].transition).toEqual({
 			source: 'idle',
 			event: 'start',
 			target: 'loading',
@@ -52,7 +50,7 @@ describe('should', () => {
 		machine.send('done')
 		expect(machine.currentState).toBe('finished')
 		expect(handler).toHaveBeenCalledTimes(2)
-		expect(handler.mock.calls[1][0].transition).toEqual({
+		expect(handler.mock.calls[1]![0].transition).toEqual({
 			source: 'loading',
 			event: 'done',
 			target: 'finished',
@@ -75,7 +73,7 @@ describe('should', () => {
 		machine.send('start')
 		expect(machine.currentState).toBe('loading')
 		expect(handler).toHaveBeenCalledTimes(1)
-		expect(handler.mock.calls[0][0].transition).toEqual({
+		expect(handler.mock.calls[0]![0].transition).toEqual({
 			source: 'idle',
 			event: 'start',
 			target: 'loading',
@@ -99,19 +97,19 @@ describe('should', () => {
 		machine.send('start')
 		expect(machine.currentState).toBe('loading')
 		expect(handler1).toHaveBeenCalledTimes(1)
-		expect(handler1.mock.calls[0][0].transition).toEqual({
+		expect(handler1.mock.calls[0]![0].transition).toEqual({
 			source: 'idle',
 			event: 'start',
 			target: 'loading',
 		})
 		expect(handler2).toHaveBeenCalledTimes(1)
-		expect(handler2.mock.calls[0][0].transition).toEqual({
+		expect(handler2.mock.calls[0]![0].transition).toEqual({
 			source: 'idle',
 			event: 'start',
 			target: 'loading',
 		})
 		expect(handler3).toHaveBeenCalledTimes(1)
-		expect(handler3.mock.calls[0][0].transition).toEqual({
+		expect(handler3.mock.calls[0]![0].transition).toEqual({
 			source: 'idle',
 			event: 'start',
 			target: 'loading',

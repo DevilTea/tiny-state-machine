@@ -1,8 +1,8 @@
 {
 	"references": [
-		{ "path": "./tsconfig.lib.json" },
-		{ "path": "./tsconfig.node.json" },
-		{ "path": "./tsconfig.test.json" }
+		{ "path": "./packages/core/tsconfig.test.json" },
+		{ "path": "./packages/vue/tsconfig.test.json" },
+		{ "path": "./tsconfig.vitest.json" }
 	],
 	"files": []
 }

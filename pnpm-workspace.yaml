@@ -1,0 +1,25 @@
+packages:
+  - 'packages/*'
+
+catalog:
+  '@deviltea/eslint-config': 3.4.1
+  '@deviltea/tsconfig': 0.0.6
+  '@types/node': ^20
+  '@vitest/coverage-v8': 3.0.3
+  bumpp: 9.7.1
+  eslint: 9.13.0
+  happy-dom: 15.7.4
+  lerna: 8.1.9
+  lint-staged: 15.4.1
+  pkg-size: 2.4.0
+  publint: 0.2.11
+  rimraf: 6.0.1
+  simple-git-hooks: 2.11.1
+  terser: 5.36.0
+  tsx: 4.19.1
+  typescript: 5.7.3
+  unbuild: 3.0.1
+  vitest: 3.0.3
+  vitepress: 1.5.0
+  vue: 3.5.13
+  zx: 8.2.0

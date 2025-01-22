@@ -13,46 +13,46 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
-      - name: Install pnpm
-        uses: pnpm/action-setup@v2
+      - name: setup pnpm
+        uses: pnpm/action-setup@v4
 
-      - name: Set node
-        uses: actions/setup-node@v3
+      - name: setup node
+        uses: actions/setup-node@v4
         with:
           node-version: lts/*
 
-      - name: Setup
-        run: npm i -g @antfu/ni
+      - name: install dependencies
+        run: pnpm install --frozen-lockfile
 
-      - name: Install
-        run: nci
+      - name: build
+        run: pnpm build
 
-      - name: Lint
-        run: nr lint
+      - name: lint files
+        run: pnpm lint
 
   typecheck:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
-      - name: Install pnpm
-        uses: pnpm/action-setup@v2
+      - name: setup pnpm
+        uses: pnpm/action-setup@v4
 
-      - name: Set node
-        uses: actions/setup-node@v3
+      - name: setup node
+        uses: actions/setup-node@v4
         with:
           node-version: lts/*
 
-      - name: Setup
-        run: npm i -g @antfu/ni
+      - name: install dependencies
+        run: pnpm install --frozen-lockfile
 
-      - name: Install
-        run: nci
+      - name: build
+        run: pnpm build
 
-      - name: Typecheck
-        run: nr typecheck
+      - name: typecheck
+        run: pnpm typecheck
 
   test:
     runs-on: ${{ matrix.os }}
@@ -64,24 +64,21 @@ jobs:
       fail-fast: false
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
-      - name: Install pnpm
-        uses: pnpm/action-setup@v2
+      - name: setup pnpm
+        uses: pnpm/action-setup@v4
 
-      - name: Set node ${{ matrix.node }}
-        uses: actions/setup-node@v3
+      - name: setup node
+        uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node }}
+          node-version: lts/*
 
-      - name: Setup
-        run: npm i -g @antfu/ni
+      - name: install dependencies
+        run: pnpm install --frozen-lockfile
 
-      - name: Install
-        run: nci
+      - name: build
+        run: pnpm build
 
-      - name: Build
-        run: nr build
-
-      - name: Test
-        run: nr test
+      - name: test
+        run: pnpm test

@@ -1,26 +1,22 @@
 type Prettify<T> = { [Key in keyof T]: T[Key] } & {}
 
-interface GeneralStateShape<StatesKeys extends string> {
-	on: {
-		[Event in string]: StatesKeys
+interface MachineState<StateKey extends string> {
+	on?: {
+		[Event in string]: StateKey
 	}
 }
-interface FinalStateShape {
-	type: 'final'
-}
-type StateShape<StatesKeys extends string> = GeneralStateShape<StatesKeys> | FinalStateShape
 
-interface MachineConfig<StatesKeys extends string = string> {
+export interface MachineConfig<StateKey extends string = string> {
 	id?: string
-	initial: StatesKeys
+	initial: StateKey
 	states: {
-		[EachState in StatesKeys & string]: StateShape<StatesKeys>
+		[EachState in StateKey]: MachineState<StateKey>
 	}
 }
 
-type MachineContext = Record<any, any> | null
+export type MachineContext = Record<any, any> | null
 
-type StateKeyOf<Config extends MachineConfig> = keyof Config['states']
+export type StateKeyOf<Config extends MachineConfig> = keyof Config['states']
 type SourceState<Config extends MachineConfig> = Config extends { states: infer StatesConfig }
 	? { [Key in keyof StatesConfig as StatesConfig[Key] extends { on: any } ? Key : never]: StatesConfig[Key] }
 	: never

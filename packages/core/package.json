@@ -1,0 +1,40 @@
+{
+	"name": "@deviltea/tiny-state-machine",
+	"type": "module",
+	"publishConfig": {
+		"access": "public"
+	},
+	"version": "0.0.1",
+	"author": "DevilTea <ch19980814@gmail.com>",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/DevilTea/tiny-state-machine.git",
+		"directory": "packages/core"
+	},
+	"bugs": {
+		"url": "https://github.com/DevilTea/tiny-state-machine/issues"
+	},
+	"keywords": [],
+	"exports": {
+		".": {
+			"import": {
+				"types": "./dist/index.d.mts",
+				"default": "./dist/index.mjs"
+			},
+			"require": {
+				"types": "./dist/index.d.cts",
+				"default": "./dist/index.cjs"
+			}
+		}
+	},
+	"main": "dist/index.cjs",
+	"module": "dist/index.mjs",
+	"types": "dist/index.d.ts",
+	"files": [
+		"dist"
+	],
+	"scripts": {
+		"build": "unbuild"
+	}
+}
