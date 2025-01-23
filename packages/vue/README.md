@@ -10,25 +10,23 @@
 To install the package, use either `npm`, `yarn`, or `pnpm`:
 
 ```bash
-npm install @deviltea/tiny-state-machine
+npm install @deviltea/tiny-state-machine-vue
 ```
 
 ```bash
-yarn add @deviltea/tiny-state-machine
+yarn add @deviltea/tiny-state-machine-vue
 ```
 
 ```bash
-pnpm add @deviltea/tiny-state-machine
+pnpm add @deviltea/tiny-state-machine-vue
 ```
 
 ## Usage
 
-Here is an example of how to create a simple state machine using `@deviltea/tiny-state-machine`.
-
-### Example: Basic State Machine
+### Example: `useMachine`
 
 ```typescript
-import { createMachine } from '@deviltea/tiny-state-machine'
+import { createMachine, useMachine } from '@deviltea/tiny-state-machine-vue'
 
 // Define a simple state machine with three states: idle, loading, and finished
 const machine = createMachine({
@@ -47,52 +45,18 @@ const machine = createMachine({
 		finished: {},
 	},
 })
+// Get a vue ref representing the current state
+const { currentState } = useMachine(machine)
 
-console.log(machine.currentState) // "idle"
+watch(currentState, (value) => {
+	console.log(value)
+})
 
 // Transition to the next state
-machine.send('start')
-console.log(machine.currentState) // "loading"
+machine.send('start') // The watch will log "loading"
 
 // Finish the transition
-machine.send('done')
-console.log(machine.currentState) // "finished"
-```
-
-### Example: Adding Transition Handlers
-
-You can also add handlers that will be called during state transitions.
-
-```typescript
-import { createMachine } from '@deviltea/tiny-state-machine'
-
-const machine = createMachine({
-	initial: 'idle',
-	states: {
-		idle: {
-			on: {
-				start: 'loading',
-			},
-		},
-		loading: {
-			on: {
-				done: 'finished',
-			},
-		},
-		finished: {},
-	},
-})
-
-const unsubscribe = machine.onTransition(({ transition }) => {
-	console.log(
-		`Transitioned from ${transition.source} to ${transition.target} via event '${transition.event}'`
-	)
-})
-
-machine.send('start') // Logs: Transitioned from idle to loading via event 'start'
-machine.send('done') // Logs: Transitioned from loading to finished via event 'done'
-
-unsubscribe()
+machine.send('done') // The watch will log "finished"
 ```
 
 ## License
