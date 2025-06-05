@@ -1,7 +1,7 @@
 {
 	"name": "docs",
 	"type": "module",
-	"version": "0.2.18",
+	"version": "0.0.5",
 	"private": true,
 	"author": "DevilTea <ch19980814@gmail.com>",
 	"license": "MIT",
