@@ -184,9 +184,9 @@ export class Machine<
 		return this._context
 	}
 
-	get currentState() {
+	get currentState(): StateKeyOf<Config> {
 		this._throwIfDestroyed()
-		return this._currentState
+		return this._currentState as StateKeyOf<Config>
 	}
 
 	get isDestroyed() {
