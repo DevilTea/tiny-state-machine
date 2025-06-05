@@ -1,0 +1,18 @@
+{
+	"extends": "@deviltea/tsconfig/dom",
+	"compilerOptions": {
+		"composite": true
+	},
+	"include": [
+		"./**/*",
+		"./.vitepress/theme"
+	],
+	"exclude": [
+		"./.vitepress/cache",
+		"./.vitepress/dist",
+		"./.vitepress/config.ts"
+	],
+	"vueCompilerOptions": {
+		"vitePressExtensions": [".md"]
+	}
+}

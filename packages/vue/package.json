@@ -9,11 +9,11 @@
 	"license": "MIT",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/DevilTea/tiny-state-machine.git",
+		"url": "git+https://github.com/DevilTea/repo-placeholder.git",
 		"directory": "packages/vue"
 	},
 	"bugs": {
-		"url": "https://github.com/DevilTea/tiny-state-machine/issues"
+		"url": "https://github.com/DevilTea/repo-placeholder/issues"
 	},
 	"keywords": [],
 	"exports": {
@@ -35,10 +35,12 @@
 		"dist"
 	],
 	"scripts": {
-		"build": "unbuild"
-	},
-	"peerDependencies": {
-		"vue": "^3.4.0"
+		"build": "unbuild",
+		"build:pack": "pnpm build && pnpm pack",
+		"stub": "unbuild --stub",
+		"typecheck": "pnpm typecheck:package && pnpm typecheck:test",
+		"typecheck:package": "tsc --project ./tsconfig.package.json --noEmit",
+		"typecheck:test": "tsc --project ./tsconfig.tests.json --noEmit"
 	},
 	"dependencies": {
 		"@deviltea/tiny-state-machine": "workspace:*"

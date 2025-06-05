@@ -5,7 +5,7 @@ export default defineBuildConfig({
 	declaration: true,
 	rollup: {
 		dts: {
-			tsconfig: './tsconfig.package.json',
+			tsconfig: './tsconfig.lib.json',
 			compilerOptions: {
 				composite: false,
 			},

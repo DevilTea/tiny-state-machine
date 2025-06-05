@@ -1,8 +1,14 @@
 {
+	"extends": [
+		"./docs/tsconfig.json",
+		"./packages/pkg-placeholder/tsconfig.json",
+		"./packages/core/tsconfig.json",
+		"./packages/vue/tsconfig.json"
+	],
 	"references": [
-		{ "path": "./packages/core/tsconfig.test.json" },
-		{ "path": "./packages/vue/tsconfig.test.json" },
-		{ "path": "./tsconfig.vitest.json" }
+		{
+			"path": "./tsconfig.scripts.json"
+		}
 	],
 	"files": []
 }

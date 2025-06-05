@@ -1,43 +1,52 @@
 {
-	"name": "@deviltea/tiny-state-machine-mono",
+	"name": "monorepo",
 	"type": "module",
+	"version": "0.0.4",
 	"private": true,
-	"packageManager": "pnpm@9.12.2",
-	"description": "A simple state machine with tiny size and type safe.",
+	"packageManager": "pnpm@10.5.2",
+	"description": "_description_",
 	"author": "DevilTea <ch870814@gmail.com>",
 	"license": "MIT",
-	"homepage": "https://github.com/DevilTea/tiny-state-machine#readme",
+	"homepage": "https://github.com/DevilTea/repo-placeholder#readme",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/DevilTea/tiny-state-machine.git"
+		"url": "git+https://github.com/DevilTea/repo-placeholder.git"
 	},
-	"bugs": "https://github.com/DevilTea/tiny-state-machine/issues",
+	"bugs": "https://github.com/DevilTea/repo-placeholder/issues",
 	"keywords": [],
+	"sideEffects": false,
+	"engines": {
+		"node": ">=22"
+	},
 	"scripts": {
-		"build": "lerna run build",
-		"release": "lerna exec publint && pnpm run typecheck && lerna run build && lerna publish",
-		"lint": "eslint --fix .",
-		"typecheck": "tsc -b --noEmit",
-		"publint": "lerna exec publint",
+		"build": "pnpm -r --filter=./packages/* build",
+		"stub": "pnpm -r --filter=./packages/* stub",
+		"newpkg": "tsx ./scripts/newpkg.ts",
+		"publint": "pnpm -r --filter=./packages/* exec publint",
+		"release": "pnpm build && pnpm docs:build && pnpm typecheck && pnpm publint && rimraf ./**/dist && bumpp -r && pnpm build && pnpm -r --filter=./packages/* publish",
+		"docs:dev": "pnpm -r --filter=./docs run dev",
+		"docs:build": "pnpm -r --filter=./docs run build",
+		"docs:preview": "pnpm -r --filter=./docs run preview",
 		"test": "vitest",
 		"test:coverage": "vitest --coverage",
+		"lint": "eslint --fix .",
+		"typecheck": "pnpm -r typecheck",
 		"prepare": "simple-git-hooks"
 	},
 	"devDependencies": {
+		"@clack/prompts": "catalog:",
 		"@deviltea/eslint-config": "catalog:",
 		"@deviltea/tsconfig": "catalog:",
 		"@types/node": "catalog:",
 		"@vitest/coverage-v8": "catalog:",
 		"bumpp": "catalog:",
 		"eslint": "catalog:",
-		"happy-dom": "catalog:",
-		"lerna": "catalog:",
 		"lint-staged": "catalog:",
+		"pathe": "catalog:",
 		"pkg-size": "catalog:",
 		"publint": "catalog:",
 		"rimraf": "catalog:",
 		"simple-git-hooks": "catalog:",
-		"terser": "catalog:",
 		"tsx": "catalog:",
 		"typescript": "catalog:",
 		"unbuild": "catalog:",
@@ -49,5 +58,8 @@
 	},
 	"lint-staged": {
 		"*": "eslint --fix"
+	},
+	"publishConfig": {
+		"access": "public"
 	}
 }
