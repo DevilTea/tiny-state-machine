@@ -1,5 +1,6 @@
 import type { Machine, MachineConfig, MachineContext } from '@deviltea/tiny-state-machine'
-import { onScopeDispose, type Ref, ref } from 'vue'
+import type { Ref } from 'vue'
+import { onScopeDispose, ref } from 'vue'
 
 export * from '@deviltea/tiny-state-machine'
 
@@ -15,8 +16,8 @@ export function useMachine<
 	machine: M,
 	{ autoDestroy = true }: UseMachineOptions = { autoDestroy: true },
 ): {
-		currentState: Ref<M['currentState']>
-	} {
+	currentState: Ref<M['currentState']>
+} {
 	if (autoDestroy === true) {
 		onScopeDispose(() => {
 			try {

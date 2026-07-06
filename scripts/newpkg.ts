@@ -5,6 +5,8 @@ import { cancel, intro, isCancel, outro, text } from '@clack/prompts'
 import { join } from 'pathe'
 import { $ } from 'zx'
 
+const VALID_NAME_RE = /^[a-z0-9-]+$/
+
 intro('Create a new package')
 
 const pkgDirname = await text({
@@ -12,7 +14,7 @@ const pkgDirname = await text({
 	validate: (value) => {
 		if (!value)
 			return 'Required.'
-		if (!/^[a-z0-9-]+$/.test(value))
+		if (!VALID_NAME_RE.test(value))
 			return 'Only lowercase letters, numbers, and hyphens are allowed.'
 		return void 0
 	},
@@ -29,7 +31,7 @@ const pkgName = await text({
 	validate: (value) => {
 		if (!value)
 			return 'Required.'
-		if (!/^[a-z0-9-]+$/.test(value))
+		if (!VALID_NAME_RE.test(value))
 			return 'Only lowercase letters, numbers, and hyphens are allowed.'
 		return void 0
 	},

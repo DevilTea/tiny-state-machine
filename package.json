@@ -19,11 +19,11 @@
 		"node": ">=24"
 	},
 	"scripts": {
-		"build": "pnpm -r --filter=./packages/* build",
-		"stub": "pnpm -r --filter=./packages/* stub",
+		"build": "pnpm -r --filter='./packages/*' build",
+		"stub": "pnpm -r --filter='./packages/*' stub",
 		"newpkg": "tsx ./scripts/newpkg.ts",
-		"publint": "pnpm -r --filter=./packages/* exec publint",
-		"release": "pnpm build && pnpm docs:build && pnpm typecheck && pnpm publint && rimraf ./**/dist && bumpp -r && pnpm build && pnpm -r --filter=./packages/* publish",
+		"publint": "pnpm -r --filter='./packages/*' exec publint",
+		"release": "pnpm build && pnpm docs:build && pnpm typecheck && pnpm publint && rimraf ./**/dist && bumpp -r && pnpm build && pnpm -r --filter='./packages/*' publish",
 		"docs:dev": "pnpm -r --filter=./docs run dev",
 		"docs:build": "pnpm -r --filter=./docs run build",
 		"docs:preview": "pnpm -r --filter=./docs run preview",
