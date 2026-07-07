@@ -69,8 +69,8 @@ pnpm newpkg
 
 ## Release
 
-- Manual, from local: `pnpm release` — builds packages + docs, typechecks, runs publint, bumps versions with `bumpp -r` (creates the git tag), rebuilds, then `pnpm publish` for each `packages/*` package.
-- Pushing a `v*` tag triggers `.github/workflows/release.yml`, which generates GitHub release notes via `changelogithub` (no npm publish in CI).
+- Releases run in CI: trigger the `Release` workflow (workflow_dispatch) with a `bump_type` (patch/minor/major). It validates (`pnpm build && pnpm publint && pnpm typecheck && pnpm test`), bumps all packages with `bumpp -r` (pushes the release commit + `v*` tag), publishes every `packages/*` package to npm via trusted publishing (OIDC — no token secret), then generates GitHub release notes with `changelogithub`.
+- The local `pnpm release` script bypasses CI validation and produces no GitHub release notes — prefer the workflow.
 - Docs: pushes to `main` trigger `deploy-docs.yml`, building VitePress and deploying `docs/.vitepress/dist` to GitHub Pages.
 - Weekly `security-audit.yml` runs `pnpm audit --audit-level=moderate` (Sundays 21:00 UTC).
 

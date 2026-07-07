@@ -23,6 +23,7 @@
 		"stub": "pnpm -r --filter='./packages/*' stub",
 		"newpkg": "tsx ./scripts/newpkg.ts",
 		"publint": "pnpm -r --filter='./packages/*' exec publint",
+		"publish:packages": "pnpm -r --filter='./packages/*' publish",
 		"release": "pnpm build && pnpm docs:build && pnpm typecheck && pnpm publint && rimraf ./**/dist && bumpp -r && pnpm build && pnpm -r --filter='./packages/*' publish",
 		"docs:dev": "pnpm -r --filter=./docs run dev",
 		"docs:build": "pnpm -r --filter=./docs run build",
