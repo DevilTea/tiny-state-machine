@@ -78,4 +78,4 @@ pnpm newpkg
 
 - `pnpm-workspace.yaml` sets `shellEmulator: true` — root scripts run under pnpm's shell emulator, which expands unquoted globs. Keep filter globs quoted (e.g. `--filter='./packages/*'`) when adding or editing scripts.
 - Supply-chain settings in `pnpm-workspace.yaml`: `minimumReleaseAge: 4320` (packages younger than 3 days won't resolve), `trustPolicy: no-downgrade`, `blockExoticSubdeps: true`, `strictDepBuilds: true` (only `esbuild` and `simple-git-hooks` are allowed/ignored for build scripts). New deps may need catalog + these settings in mind.
-- Template placeholders remain from the repo scaffold: root `package.json` metadata and README badges reference `repo-placeholder`/`pkg-placeholder`, and `docs/.vitepress/config.ts` still uses the placeholder `base`/`title`. Root `tsconfig.json` also extends a non-existent `./packages/pkg-placeholder/tsconfig.json`.
+- Docs nav/sidebar in `docs/.vitepress/config.ts` still point at the scaffold example pages (`markdown-examples`, `api-examples`); replace them when writing real docs.

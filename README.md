@@ -39,11 +39,11 @@ To fully utilize `@deviltea/tiny-state-machine`, it's essential to understand th
 
 <!-- Badges -->
 
-[npm-version-src]: https://img.shields.io/npm/v/pkg-placeholder?style=flat&colorA=080f12&colorB=1fa669
-[npm-version-href]: https://npmjs.com/package/pkg-placeholder
-[npm-downloads-src]: https://img.shields.io/npm/dm/pkg-placeholder?style=flat&colorA=080f12&colorB=1fa669
-[npm-downloads-href]: https://npmjs.com/package/pkg-placeholder
-[bundle-src]: https://img.shields.io/bundlephobia/minzip/pkg-placeholder?style=flat&colorA=080f12&colorB=1fa669&label=minzip
-[bundle-href]: https://bundlephobia.com/result?p=pkg-placeholder
-[license-src]: https://img.shields.io/github/license/DevilTea/repo-placeholder.svg?style=flat&colorA=080f12&colorB=1fa669
-[license-href]: https://github.com/DevilTea/repo-placeholder/blob/main/LICENSE
+[npm-version-src]: https://img.shields.io/npm/v/@deviltea/tiny-state-machine?style=flat&colorA=080f12&colorB=1fa669
+[npm-version-href]: https://npmjs.com/package/@deviltea/tiny-state-machine
+[npm-downloads-src]: https://img.shields.io/npm/dm/@deviltea/tiny-state-machine?style=flat&colorA=080f12&colorB=1fa669
+[npm-downloads-href]: https://npmjs.com/package/@deviltea/tiny-state-machine
+[bundle-src]: https://img.shields.io/bundlephobia/minzip/@deviltea/tiny-state-machine?style=flat&colorA=080f12&colorB=1fa669&label=minzip
+[bundle-href]: https://bundlephobia.com/result?p=@deviltea/tiny-state-machine
+[license-src]: https://img.shields.io/github/license/DevilTea/tiny-state-machine.svg?style=flat&colorA=080f12&colorB=1fa669
+[license-href]: https://github.com/DevilTea/tiny-state-machine/blob/main/LICENSE

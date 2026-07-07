@@ -1,7 +1,6 @@
 {
 	"extends": [
 		"./docs/tsconfig.json",
-		"./packages/pkg-placeholder/tsconfig.json",
 		"./packages/core/tsconfig.json",
 		"./packages/vue/tsconfig.json"
 	],

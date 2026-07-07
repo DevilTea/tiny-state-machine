@@ -4,9 +4,9 @@ import { groupIconMdPlugin as MarkdownItGroupIcon } from 'vitepress-plugin-group
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-	base: '/repo-placeholder/',
-	title: 'repo-placeholder',
-	description: 'Document for repo-placeholder',
+	base: '/tiny-state-machine/',
+	title: 'tiny-state-machine',
+	description: 'A simple state machine with a tiny size and type safety.',
 	themeConfig: {
 		// https://vitepress.dev/reference/default-theme-config
 		nav: [
@@ -25,7 +25,7 @@ export default defineConfig({
 		],
 
 		socialLinks: [
-			{ icon: 'github', link: 'https://github.com/vuejs/vitepress' },
+			{ icon: 'github', link: 'https://github.com/DevilTea/tiny-state-machine' },
 		],
 	},
 

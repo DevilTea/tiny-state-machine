@@ -4,15 +4,15 @@
 	"version": "0.0.5",
 	"private": true,
 	"packageManager": "pnpm@10.34.4",
-	"description": "_description_",
+	"description": "A simple state machine with a tiny size and type safety.",
 	"author": "DevilTea <ch870814@gmail.com>",
 	"license": "MIT",
-	"homepage": "https://github.com/DevilTea/repo-placeholder#readme",
+	"homepage": "https://github.com/DevilTea/tiny-state-machine#readme",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/DevilTea/repo-placeholder.git"
+		"url": "git+https://github.com/DevilTea/tiny-state-machine.git"
 	},
-	"bugs": "https://github.com/DevilTea/repo-placeholder/issues",
+	"bugs": "https://github.com/DevilTea/tiny-state-machine/issues",
 	"keywords": [],
 	"sideEffects": false,
 	"engines": {
