@@ -1,5 +1,8 @@
 # Supply-chain security baseline (see DevilTea/hub templates/pnpm-security.md)
 minimumReleaseAge: 4320
+minimumReleaseAgeExclude:
+  - '@deviltea/eslint-config'
+  - '@deviltea/tsconfig'
 shellEmulator: true
 
 trustPolicy: no-downgrade
@@ -9,8 +12,8 @@ packages:
 
 catalog:
   '@clack/prompts': ^0.10.1
-  '@deviltea/eslint-config': 7.0.0
-  '@deviltea/tsconfig': 0.0.7
+  '@deviltea/eslint-config': 8.0.2
+  '@deviltea/tsconfig': 0.0.10
   '@shikijs/vitepress-twoslash': ^3.23.0
   '@types/node': ^24.13.2
   '@vitest/coverage-v8': ^4.1.9
